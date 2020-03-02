@@ -1,0 +1,8 @@
+{
+    "prettier.spaceBeforeFunctionParen": true,
+    "editor.formatOnSave": true,
+    "prettier.alignObjectProperties": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.arrowParens": false,
+    "editor.defaultFormatter": "remimarsal.prettier-now"
+}
