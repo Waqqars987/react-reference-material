@@ -1,0 +1,4 @@
+{
+    "prettier.spaceBeforeFunctionParen": true,
+    "editor.formatOnSave": true
+}
