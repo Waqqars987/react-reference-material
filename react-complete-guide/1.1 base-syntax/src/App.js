@@ -1,4 +1,5 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
+// import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 

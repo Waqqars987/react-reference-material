@@ -1,0 +1,5 @@
+{
+    "prettier.alignObjectProperties": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.spaceBeforeFunctionParen": true
+}
