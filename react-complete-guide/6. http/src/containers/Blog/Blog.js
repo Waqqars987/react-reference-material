@@ -17,6 +17,7 @@ class Blog extends Component {
 		axios
 			.get('/posts')
 			.then((response) => {
+				console.log('Blog -> componentDidMount -> response', response);
 				const posts = response.data.slice(0, 4);
 				const updatedPosts = posts.map((post) => {
 					return {
@@ -27,6 +28,7 @@ class Blog extends Component {
 				this.setState({ posts: updatedPosts });
 			})
 			.catch((error) => {
+				console.log('Blog -> componentDidMount -> error', error);
 				this.setState({ error: true });
 			});
 	}
