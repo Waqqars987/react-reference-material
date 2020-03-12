@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Posts/Posts';
-import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+// import NewPost from './NewPost/NewPost';	//eager import
+
+import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
+const AsyncNewPost = asyncComponent(() => {
+	return import('./NewPost/NewPost'); //dynamically importing a component
+});
 
 class Blog extends Component {
+	state = {
+		auth : true
+	};
 	render () {
 		return (
 			<div className='Blog'>
@@ -15,7 +22,7 @@ class Blog extends Component {
 							<li>
 								{/* Custom active class with custom style */}
 								<NavLink
-									to='/'
+									to='/posts'
 									exact
 									activeClassName='my-active'
 									activeStyle={{ color: '#fa923f', textDecoration: 'underline' }}
@@ -41,10 +48,14 @@ class Blog extends Component {
 				</header>
 				{/* <Route path='/' exact render={() => <h1>Home</h1>} />
 				<Route path='/' render={() => <h1>Home 2</h1>} /> */}
-				<Route path='/' exact component={Posts} />
 				<Switch>
-					<Route path='/new-post' component={NewPost} />
-					<Route path='/:id' exact component={FullPost} />
+					{/* Conditionally rendering route(Route Gurads) */}
+					{this.state.auth ? <Route path='/new-post' component={AsyncNewPost} /> : null}
+					<Route path='/posts' component={Posts} />
+					{/* Handling 404 or Unknown routes */}
+					<Route render={() => <h1>Not Found</h1>} />
+					{/* 'from' available only when used inside Switch */}
+					{/* <Redirect from='/' to='/posts' /> */}
 				</Switch>
 			</div>
 		);

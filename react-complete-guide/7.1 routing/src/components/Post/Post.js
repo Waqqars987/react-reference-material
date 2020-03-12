@@ -14,7 +14,7 @@ const post = (props) => {
 	);
 };
 
-// using withRouter to receive router props down in the component tree, i.e. from the praent here (Posts)
+// using withRouter to receive router props down in the component tree, i.e. from the parent here (Posts)
 // export default withRouter(post);
 
 export default post;
