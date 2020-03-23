@@ -1,0 +1,18 @@
+{
+	"name": "11.-next",
+	"version": "1.0.0",
+	"description": "next.js demo",
+	"main": "index.js",
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"author": "Waqqar Suleman",
+	"license": "ISC",
+	"dependencies": {
+		"next": "^9.3.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	}
+}
