@@ -4,3 +4,6 @@
 [submodule "let-suspense"]
 	path = let-suspense
 	url = https://github.com/comphonia/LetSuspense.git
+[submodule "multi-level-dropdown"]
+	path = multi-level-dropdown
+	url = https://github.com/fireship-io/229-multi-level-dropdown.git
