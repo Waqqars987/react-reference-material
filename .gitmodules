@@ -1,0 +1,3 @@
+[submodule "react-step-form"]
+	path = react-step-form
+	url = https://github.com/bradtraversy/react_step_form.git
