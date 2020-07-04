@@ -13,6 +13,9 @@ const Search = React.memo(props => {
 
 	useEffect(
 		() => {
+			/* The start value is not enclosed in the setTimeout method but in the component function. 
+			So each timer has its own start value.
+			The value is enclosed in the component function itself (which is called on each render cycle).*/
 			const timer = setTimeout(() => {
 				if (enteredFilter === inputRef.current.value) {
 					const query = enteredFilter.length === 0 ? '' : `?orderBy="title"&equalTo="${enteredFilter}"`;
