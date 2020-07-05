@@ -13,6 +13,9 @@ const Search = React.memo(props => {
 
 	useEffect(
 		() => {
+			/* The start value is not enclosed in the setTimeout method but in the component function. 
+			So each timer has its own start value.
+			The value is enclosed in the component function itself (which is called on each render cycle).*/
 			const timer = setTimeout(() => {
 				// After using useEffect’s cleanup callback, it is possible to remove the mentioned check and the related inputRef
 				// stuff completely from the Search component.
