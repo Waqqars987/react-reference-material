@@ -24,8 +24,11 @@ const useStyles = makeStyles(theme => ({
 		backgroundColor : theme.palette.secondary.main
 	},
 	form   : {
-		width     : '100%',
-		marginTop : theme.spacing(1)
+		width                       : '100%',
+		marginTop                   : theme.spacing(1),
+		'@media (max-width: 768px)' : {
+			width : '90%'
+		}
 	},
 	submit : {
 		margin : theme.spacing(3, 0, 2)
@@ -33,12 +36,25 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function App () {
-	const [ whatsappNumber, setWhatsappNumber ] = useState();
+	const [ whatsappNumber, setWhatsappNumber ] = useState('');
+	const [ error, setError ] = useState(false);
+	const [ errorMessage, setErrorMessage ] = useState('');
 	const classes = useStyles();
 
 	const submitHandler = event => {
 		event.preventDefault();
+		if (whatsappNumber.length === 0) {
+			setError(true);
+			setErrorMessage('Whatsapp number is required!');
+			return;
+		}
 		window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}`;
+	};
+
+	const inputChangeHandler = event => {
+		setError(false);
+		setErrorMessage('');
+		setWhatsappNumber(event.target.value);
 	};
 
 	return (
@@ -51,19 +67,20 @@ export default function App () {
 				<Typography component='h1' variant='h5'>
 					Whatsapp Helper
 				</Typography>
-				<form className={classes.form} onSubmit={event => submitHandler(event)}>
+				<form className={classes.form} onSubmit={event => submitHandler(event)} noValidate>
 					<TextField
 						variant='outlined'
 						margin='normal'
 						required
 						fullWidth
 						id='whatsappNumber'
-						label='Enter Whatsapp Number with Country Code'
+						label='Whatsapp Number with Country Code'
 						name='whatsappNumber'
 						autoFocus
 						defaultValue={whatsappNumber}
-						onChange={event => setWhatsappNumber(event.target.value)}
-						onInvalid={event => event.target.setCustomValidity('Please enter a Whatsapp Number!')}
+						onChange={event => inputChangeHandler(event)}
+						error={error}
+						helperText={errorMessage}
 					/>
 					<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
 						Send
