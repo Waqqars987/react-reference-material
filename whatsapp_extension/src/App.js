@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Copyright from './components/Copyright';
+import './App.css';
 
 const useStyles = makeStyles(theme => ({
 	paper  : {
@@ -38,22 +39,24 @@ const useStyles = makeStyles(theme => ({
 export default function App () {
 	const [ whatsappNumber, setWhatsappNumber ] = useState('');
 	const [ error, setError ] = useState(false);
-	const [ errorMessage, setErrorMessage ] = useState('');
+	const [ message, setMessage ] = useState(`Kindly omit the '+' symbol.`);
 	const classes = useStyles();
 
 	const submitHandler = event => {
 		event.preventDefault();
 		if (whatsappNumber.length === 0) {
 			setError(true);
-			setErrorMessage('Whatsapp number is required!');
+			setMessage(`Whatsapp number is required.`);
 			return;
 		}
 		window.location.href = `https://api.whatsapp.com/send?phone=${whatsappNumber}`;
 	};
 
 	const inputChangeHandler = event => {
-		setError(false);
-		setErrorMessage('');
+		if (error) {
+			setError(false);
+			setMessage(`Kindly omit the '+' symbol.`);
+		}
 		setWhatsappNumber(event.target.value);
 	};
 
@@ -71,6 +74,7 @@ export default function App () {
 					<TextField
 						variant='outlined'
 						margin='normal'
+						type='number'
 						required
 						fullWidth
 						id='whatsappNumber'
@@ -80,7 +84,7 @@ export default function App () {
 						defaultValue={whatsappNumber}
 						onChange={event => inputChangeHandler(event)}
 						error={error}
-						helperText={errorMessage}
+						helperText={message}
 					/>
 					<Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit}>
 						Send
