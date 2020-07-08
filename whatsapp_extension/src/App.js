@@ -57,7 +57,7 @@ export default function App () {
 			setError(false);
 			setMessage(`Kindly omit the '+' symbol.`);
 		}
-		setWhatsappNumber(event.target.value);
+		setWhatsappNumber(event.target.value.trim());
 	};
 
 	return (
