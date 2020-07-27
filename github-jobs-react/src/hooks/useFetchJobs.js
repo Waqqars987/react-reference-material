@@ -9,6 +9,7 @@ const ACTIONS = {
 };
 
 const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
+// const BASE_URL = 'https://jobs.github.com/positions.json';
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -35,21 +36,31 @@ export default (params, page) => {
 			axios
 				.get(BASE_URL, {
 					cancelToken : cancelToken1.token,
-					params      : { markdown: true, page: page, ...params }
+					params      : { markdown: true, page: page, ...params },
+					mode        : 'no-cors',
+					headers     : {
+						'Access-Control-Allow-Origin' : '*',
+						'Content-Type'                : 'application/json'
+					}
 				})
 				.then(res => {
 					dispatch({ type: ACTIONS.GET_DATA, payload: { jobs: res.data } });
 				})
 				.catch(error => {
-					console.log(error);
 					if (axios.isCancel(error)) return;
+					console.log(error);
 					dispatch({ type: ACTIONS.ERROR, payload: { error: error } });
 				});
 
 			axios
 				.get(BASE_URL, {
 					cancelToken : cancelToken2.token,
-					params      : { markdown: true, page: page + 1, ...params }
+					params      : { markdown: true, page: page + 1, ...params },
+					mode        : 'no-cors',
+					headers     : {
+						'Access-Control-Allow-Origin' : '*',
+						'Content-Type'                : 'application/json'
+					}
 				})
 				.then(res => {
 					dispatch({ type: ACTIONS.UPDATE_HAS_NEXT_PAGE, payload: { hasNextPage: res.data.length !== 0 } });

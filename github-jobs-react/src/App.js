@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Container, Alert } from 'react-bootstrap';
 
-import useFetchJobs from './useFetchJobs';
-import Job from './Job';
-import JobsPagination from './JobsPagination';
-import SearchForm from './SearchForm';
-import LoadingSpinner from './Spinner';
+import useFetchJobs from './hooks/useFetchJobs';
+import Job from './components/Job';
+import JobsPagination from './components/JobsPagination';
+import SearchForm from './components/SearchForm';
+import LoadingSpinner from './components/Spinner';
 
 const App = () => {
 	const [ params, setParams ] = useState({});
@@ -29,7 +29,8 @@ const App = () => {
 			{error && <Alert variant='danger'>{error.toString()} </Alert>}
 
 			{!loading &&
-			!error && (
+			!error &&
+			jobs.length > 0 && (
 				<React.Fragment>
 					<JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
 					{jobs.map(job => {
@@ -42,6 +43,8 @@ const App = () => {
 					<JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
 				</React.Fragment>
 			)}
+
+			{!loading && !error && jobs.length === 0 && <Alert variant='info'>No such job found, try searching again.</Alert>}
 		</Container>
 	);
 };
