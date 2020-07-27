@@ -8,7 +8,7 @@ import SearchForm from './components/SearchForm';
 import LoadingSpinner from './components/Spinner';
 
 const App = () => {
-	const [ params, setParams ] = useState({});
+	const [ params, setParams ] = useState({ description: '', location: '', full_time: '' });
 	const [ page, setPage ] = useState(1);
 	const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
 
