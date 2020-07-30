@@ -8,8 +8,8 @@ import SearchForm from './components/SearchForm';
 import LoadingSpinner from './components/Spinner';
 
 const App = () => {
-	const [ params, setParams ] = useState({ description: '', location: '', full_time: '' });
-	const [ page, setPage ] = useState(1);
+	const [params, setParams] = useState({});
+	const [page, setPage] = useState(1);
 	const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page);
 
 	const handleParamChange = event => {
@@ -28,11 +28,13 @@ const App = () => {
 			{loading && <LoadingSpinner />}
 			{error && <Alert variant='danger'>{error.toString()} </Alert>}
 
-			{!loading &&
-			!error &&
-			jobs.length > 0 && (
+			{!loading && !error && jobs.length > 0 && (
 				<React.Fragment>
-					<JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+					<JobsPagination
+						page={page}
+						setPage={setPage}
+						hasNextPage={hasNextPage}
+					/>
 					{jobs.map(job => {
 						return (
 							<Job key={job.id} job={job}>
@@ -40,11 +42,17 @@ const App = () => {
 							</Job>
 						);
 					})}
-					<JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+					<JobsPagination
+						page={page}
+						setPage={setPage}
+						hasNextPage={hasNextPage}
+					/>
 				</React.Fragment>
 			)}
 
-			{!loading && !error && jobs.length === 0 && <Alert variant='info'>No such job found, try searching again.</Alert>}
+			{!loading && !error && jobs.length === 0 && (
+				<Alert variant='info'>No such job found, try searching again.</Alert>
+			)}
 		</Container>
 	);
 };
