@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import FormikControl from './FormikControl';
+import FormikControl from '../FormikControl/FormikControl';
 
 function FormikContainer () {
 	const dropDownOptions = [
@@ -51,6 +51,7 @@ function FormikContainer () {
 		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 			{formik => (
 				<Form>
+					<h3>Example</h3>
 					<FormikControl control='input' type='email' label='Email' name='email' />
 					<FormikControl control='textarea' label='Description' name='description' />
 					<FormikControl

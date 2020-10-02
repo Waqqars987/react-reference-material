@@ -1,6 +1,18 @@
 .App {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+form {
+	border: 2px solid navy;
+	text-align: center;
+}
+
+h3 {
+	color: navy;
+	margin-top: 0px;
 }
 
 label {
