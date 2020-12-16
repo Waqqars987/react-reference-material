@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import arrayMove from 'array-move';
 
 import Button from './components/Button/Button';
 import Input from './components/Input/Input';
@@ -62,6 +63,11 @@ const App = () => {
 		setEditingText('');
 	};
 
+	const moveTodo = ({ fromIndex, toIndex }) => {
+		const updatedTodos = arrayMove([...todos], fromIndex, toIndex);
+		setTodos(updatedTodos);
+	};
+
 	return (
 		<div className='todo-list'>
 			<h1>Todo List</h1>
@@ -73,7 +79,7 @@ const App = () => {
 			</form>
 
 			{todos &&
-				todos.map(todo => (
+				todos.map((todo, index) => (
 					<div key={todo.id} className='todo'>
 						<div className='todo-text'>
 							<Input
@@ -99,13 +105,27 @@ const App = () => {
 									>
 										Save
 									</Button>
-									<Button onClick={resetEditing}>Cancel</Button>
+									<Button className='cancel-btn' onClick={resetEditing}>
+										Cancel
+									</Button>
 								</div>
 							) : (
 								<Button onClick={setTodoEditing} param={todo.id}>
 									Edit
 								</Button>
 							)}
+							<div>
+								{index !== 0 && (
+									<Button onClick={moveTodo} param={{ fromIndex: index, toIndex: index - 1 }}>
+										&uarr;
+									</Button>
+								)}
+								{index !== todos.length - 1 && (
+									<Button onClick={moveTodo} param={{ fromIndex: index, toIndex: index + 1 }}>
+										&darr;
+									</Button>
+								)}
+							</div>
 							<Button onClick={deleteTodo} param={todo.id}>
 								Delete
 							</Button>

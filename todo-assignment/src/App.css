@@ -37,7 +37,7 @@ form input {
 
 button {
 	font-size: 16px;
-	background-color: rgb(217, 60, 35);
+	background-color: #1a73e8;
 	color: #fff;
 	border-radius: 8px;
 	border: none;
@@ -46,11 +46,11 @@ button {
 }
 
 button:hover {
-	background-color: rgb(173, 47, 28);
+	background-color: #074ca7d3;
 }
 
 button:active {
-	background-color: rgb(130, 35, 21);
+	background-color: #074ca7d3;
 }
 
 button:focus {
@@ -59,6 +59,18 @@ button:focus {
 
 button:disabled {
 	cursor: not-allowed;
+}
+
+button.cancel-btn {
+	background-color: rgb(217, 60, 35);
+}
+
+button.cancel-btn:hover {
+	background-color: rgb(130, 35, 21);
+}
+
+button.cancel-btn:active {
+	background-color: rgb(130, 35, 21);
 }
 
 input[type='text'] {
