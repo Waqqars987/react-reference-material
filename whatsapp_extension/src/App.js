@@ -54,7 +54,7 @@ export default function App() {
 					<WhatsAppIcon />
 				</Avatar>
 				<Typography component='h1' variant='h5'>
-					Whatsapp Helper
+					WhatsApp Helper
 				</Typography>
 				<form className={classes.form} onSubmit={event => submitHandler(event)} noValidate>
 					<PhoneInput
@@ -85,7 +85,7 @@ export default function App() {
 					<Grid container>
 						<Grid item>
 							<Link target='_blank' href='https://whatsapp.com/dl' variant='body2'>
-								{"Don't have Whatsapp? Download now!"}
+								{"Don't have WhatsApp? Download now!"}
 							</Link>
 						</Grid>
 					</Grid>

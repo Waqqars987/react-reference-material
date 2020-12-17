@@ -1,4 +1,4 @@
-const CACHE_NAME = 'Whatsapp Helper';
+const CACHE_NAME = 'WhatsApp Helper';
 const urlsToCache = ['/', '/completed'];
 
 self.addEventListener('install', event => {
@@ -22,7 +22,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-	const cacheWhitelist = ['Whatsapp Helper'];
+	const cacheWhitelist = ['WhatsApp Helper'];
 	event.waitUntil(
 		caches.keys().then(cacheNames => {
 			return Promise.all(
