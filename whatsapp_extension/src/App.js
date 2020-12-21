@@ -15,6 +15,12 @@ import 'react-phone-input-2/lib/material.css';
 import './App.css';
 
 const useStyles = makeStyles(theme => ({
+	view: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-around',
+		height: '100vh',
+	},
 	paper: {
 		marginTop: theme.spacing(8),
 		display: 'flex',
@@ -47,7 +53,7 @@ export default function App() {
 	};
 
 	return (
-		<Container component='main' maxWidth='xs'>
+		<Container component='main' maxWidth='xs' className={classes.view}>
 			<CssBaseline />
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}>
