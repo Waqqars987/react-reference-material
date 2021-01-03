@@ -12,14 +12,13 @@ import Container from '@material-ui/core/Container';
 import Copyright from './components/Copyright';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/material.css';
-import './App.css';
 
 const useStyles = makeStyles(theme => ({
 	view: {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		height: '100vh',
+		height: '90vh',
 		overflow: 'hidden',
 	},
 	paper: {
