@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'column',
 		justifyContent: 'space-around',
 		height: '100vh',
+		overflow: 'hidden',
 	},
 	paper: {
 		marginTop: theme.spacing(8),
