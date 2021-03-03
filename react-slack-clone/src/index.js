@@ -6,7 +6,7 @@ import App from './components/App';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import 'semantic-ui-css/semantic.min.css';
 
 const Root = () => (
 	<Router>
