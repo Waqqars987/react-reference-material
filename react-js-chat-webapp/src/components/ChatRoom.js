@@ -14,8 +14,9 @@ import {
 	InputGroupAddon,
 } from 'reactstrap';
 import Moment from 'moment';
-import firebase from '../Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
+
+import firebase from '../Firebase';
 import '../Styles.css';
 
 function ChatRoom() {
@@ -47,7 +48,6 @@ function ChatRoom() {
 					setChats(snapshotToArray(resp));
 				});
 		};
-
 		fetchData();
 	}, [room, roomname]);
 
@@ -66,19 +66,16 @@ function ChatRoom() {
 					setUsers(roomusers.filter(x => x.status === 'online'));
 				});
 		};
-
 		fetchData();
 	}, [room, roomname]);
 
 	const snapshotToArray = snapshot => {
 		const returnArr = [];
-
 		snapshot.forEach(childSnapshot => {
 			const item = childSnapshot.val();
 			item.key = childSnapshot.key;
 			returnArr.push(item);
 		});
-
 		return returnArr;
 	};
 
@@ -87,7 +84,7 @@ function ChatRoom() {
 		const chat = newchat;
 		chat.roomname = roomname;
 		chat.nickname = nickname;
-		chat.date = Moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
+		chat.date = Moment(new Date()).format('DD/MM/YYYY h:mm:ss a');
 		chat.type = 'message';
 		const newMessage = firebase.database().ref('chats/').push();
 		newMessage.set(chat);
@@ -103,7 +100,7 @@ function ChatRoom() {
 		const chat = { roomname: '', nickname: '', message: '', date: '', type: '' };
 		chat.roomname = roomname;
 		chat.nickname = nickname;
-		chat.date = Moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
+		chat.date = Moment(new Date()).format('DD/MM/YYYY h:mm:ss a');
 		chat.message = `${nickname} leave the room`;
 		chat.type = 'exit';
 		const newMessage = firebase.database().ref('chats/').push();

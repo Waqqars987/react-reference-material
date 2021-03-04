@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Jumbotron, Spinner, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import Moment from 'moment';
+
 import firebase from '../Firebase';
 
 function RoomList() {
@@ -28,7 +29,6 @@ function RoomList() {
 
 	const snapshotToArray = snapshot => {
 		const returnArr = [];
-
 		snapshot.forEach(childSnapshot => {
 			const item = childSnapshot.val();
 			item.key = childSnapshot.key;
@@ -42,7 +42,7 @@ function RoomList() {
 		const chat = { roomname: '', nickname: '', message: '', date: '', type: '' };
 		chat.roomname = roomname;
 		chat.nickname = nickname;
-		chat.date = Moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
+		chat.date = Moment(new Date()).format('DD/MM/YYYY h:mm:ss a');
 		chat.message = `${nickname} enter the room`;
 		chat.type = 'join';
 		const newMessage = firebase.database().ref('chats/').push();

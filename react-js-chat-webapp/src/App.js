@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
+
 import Login from './components/Login';
 import RoomList from './components/RoomList';
 import AddRoom from './components/AddRoom';
 import ChatRoom from './components/ChatRoom';
+import './App.css';
 
 function App() {
 	const location = useLocation();
