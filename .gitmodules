@@ -13,3 +13,6 @@
 [submodule "youtube-2020-june-multi-step-form-formik"]
 	path = youtube-2020-june-multi-step-form-formik
 	url = https://github.com/bmvantunes/youtube-2020-june-multi-step-form-formik
+[submodule "react-router-reference/gobarber-frontend"]
+	path = react-router-reference/gobarber-frontend
+	url = https://github.com/giovanniantonaccio/gobarber-frontend.git

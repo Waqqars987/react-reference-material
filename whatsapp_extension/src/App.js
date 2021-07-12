@@ -68,6 +68,7 @@ export default function App() {
 							name: 'Phone Number',
 							required: true,
 							autoFocus: true,
+							autoComplete: 'off',
 						}}
 						placeholder='Enter Phone Number'
 						country={'in'}
