@@ -1,29 +1,40 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const useSticky = targetElemRef => {
-	const [sticky, setSticky] = useState(false);
-	const stickyContextElemRef = useRef(null);
+/**
+ *
+ * @returns {
+ * isSticky: whether the concerned sticky element is in sticky state
+ * stickyElementRef: need to be referred to the element that has to be made sticky
+ * stickyContextRef: need to be referred to the sticky positioning context element (usage is optional)
+ * }
+ */
+const useSticky = () => {
+	const [isSticky, setIsSticky] = useState(false);
+	const stickyElementRef = useRef(null);
+	const stickyContextRef = useRef(null);
 
 	const handleScroll = useCallback(() => {
-		const offset = window.scrollY;
-		const offsetLimit = targetElemRef?.current?.scrollHeight || 50;
+		const currentVerticalOffset = window.scrollY;
+		const verticalOffsetLimit = stickyElementRef?.current?.getBoundingClientRect().bottom || 50; //default vertical offset limit is 50px
 
 		const shouldStick =
-			(offset > offsetLimit && !stickyContextElemRef.current) ||
-			(offset > offsetLimit && offset <= stickyContextElemRef.current.scrollHeight);
+			(currentVerticalOffset > verticalOffsetLimit && !stickyContextRef.current) ||
+			(currentVerticalOffset > verticalOffsetLimit &&
+				currentVerticalOffset <= stickyContextRef.current.scrollHeight);
 
 		if (shouldStick) {
-			!sticky && setSticky(true);
+			!isSticky && setIsSticky(true);
 		} else {
-			sticky && setSticky(false);
+			isSticky && setIsSticky(false);
 		}
-	}, [sticky, targetElemRef]);
+	}, [isSticky, stickyElementRef]);
 
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [handleScroll]);
 
-	return { sticky, stickyContextElemRef };
+	return { isSticky, stickyElementRef, stickyContextRef };
 };
+
 export default useSticky;

@@ -1,20 +1,17 @@
-import { useRef } from 'react';
-
 import useSticky from './useSticky';
 import './App.css';
 
-function App() {
-	const headerRef = useRef(null);
-	const { sticky, stickyContextElemRef } = useSticky(headerRef);
+const App = () => {
+	const { isSticky, stickyElementRef, stickyContextRef } = useSticky();
 
 	return (
 		<>
-			<header className={sticky ? 'navbar sticky' : 'navbar'} ref={headerRef}>
-				<nav className='navigation'>{sticky ? 'STICKY' : ''} NAV</nav>
+			<header className={isSticky ? 'navbar sticky' : 'navbar'} ref={stickyElementRef}>
+				<nav className='navigation'>{isSticky ? 'STICKY' : ''} NAV</nav>
 			</header>
 
 			<main className='content'>
-				<div className='box' ref={stickyContextElemRef}>
+				<div className='box' ref={stickyContextRef}>
 					<h2>My div context </h2>
 				</div>
 				<div className='box'>
@@ -26,5 +23,5 @@ function App() {
 			</main>
 		</>
 	);
-}
+};
 export default App;
