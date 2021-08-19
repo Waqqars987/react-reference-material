@@ -1,0 +1,37 @@
+.navbar {
+	width: 100%;
+	min-height: 6vh;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #eee;
+	transition: all 0.7s ease-in;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: lightblue;
+}
+
+.content {
+	width: 80%;
+	margin: 2rem 10% 0 10%;
+	max-width: 100%;
+	box-sizing: border-box;
+	min-height: 100vh;
+}
+
+.box {
+	width: 80%;
+	margin: 2rem 10% 0 10%;
+	height: 100vh;
+	background-color: plum;
+	text-align: center;
+}
+
+.box:first-of-type {
+	background-color: salmon;
+}
