@@ -8,11 +8,11 @@ const App = () => {
 	// const myStickyContextRef = useRef(null);
 	// const { isSticky } = useSticky(myStickyElementRef, myStickyContextRef);
 
-	const { isSticky, stickstickyElementRef, stickyContextRef } = useSticky();
+	const { isSticky, stickyElementRef, stickyContextRef } = useSticky();
 
 	return (
 		<>
-			<header className={isSticky ? 'navbar sticky' : 'navbar'} ref={stickstickyElementRef}>
+			<header className={isSticky ? 'navbar sticky' : 'navbar'} ref={stickyElementRef}>
 				<nav className='navigation'>{isSticky ? 'STICKY' : ''} NAV</nav>
 			</header>
 
