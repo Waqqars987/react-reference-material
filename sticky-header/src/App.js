@@ -8,16 +8,20 @@ const App = () => {
 	// const myStickyContextRef = useRef(null);
 	// const { isSticky } = useSticky(myStickyElementRef, myStickyContextRef);
 
-	const { isSticky, stickyElementRef, stickyContextRef } = useSticky();
+	const { isSticky, stickyElementRef } = useSticky();
 
 	return (
 		<>
-			<header className={isSticky ? 'navbar sticky' : 'navbar'} ref={stickyElementRef}>
-				<nav className='navigation'>{isSticky ? 'STICKY' : ''} NAV</nav>
+			<header className={`header ${isSticky ? 'header--hidden' : ''}`} ref={stickyElementRef}>
+				Site Header
 			</header>
 
+			<div className={isSticky ? 'navbar navbar--sticky' : 'navbar'}>
+				{isSticky ? 'Sticky' : ''} Nav
+			</div>
+
 			<main className='content'>
-				<div className='box' ref={stickyContextRef}>
+				<div className='box'>
 					<h2>My div context </h2>
 				</div>
 				<div className='box'>
@@ -30,4 +34,5 @@ const App = () => {
 		</>
 	);
 };
+
 export default App;

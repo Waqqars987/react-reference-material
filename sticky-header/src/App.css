@@ -1,3 +1,19 @@
+.header {
+	width: 100%;
+	min-height: 4vh;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: goldenrod;
+	transform: translateY((0));
+	transition: transform 0.3s ease;
+}
+
+.header--hidden {
+	transform: translateY(-100%);
+}
+
 .navbar {
 	width: 100%;
 	min-height: 6vh;
@@ -5,11 +21,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #eee;
+	background-color: lightseagreen;
 	transition: all 0.7s ease-in;
 }
 
-.sticky {
+.navbar--sticky {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -30,8 +46,4 @@
 	height: 100vh;
 	background-color: plum;
 	text-align: center;
-}
-
-.box:first-of-type {
-	background-color: salmon;
 }
