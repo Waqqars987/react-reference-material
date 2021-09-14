@@ -1,0 +1,89 @@
+* {
+	box-sizing: border-box;
+}
+
+form {
+	border: 1px solid black;
+	padding: 20px;
+	width: 500px;
+}
+
+body {
+	min-height: 100vh;
+	/* display: grid;
+	place-items: center; */
+}
+
+.inputs {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+	margin-bottom: 10px;
+}
+
+.inputs > * {
+	border: 1px solid black;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 1;
+}
+
+input[type='submit'] {
+	background: black;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	border: 0;
+	width: 100%;
+	text-align: center;
+}
+
+input[type='submit']:focus {
+	border-color: blue;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.RTG > div {
+	background-color: lightsalmon;
+	height: 20vh;
+	border: 5px solid tomato;
+	text-align: center;
+	font-size: larger;
+}
+
+.fade-slide-enter {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+
+.fade-slide-enter-active {
+	opacity: 0.5;
+	transform: translateY(0%);
+	transition: all 0.3s ease;
+}
+
+.fade-slide-enter-done {
+	opacity: 1;
+}
+
+.fade-slide-exit {
+	opacity: 1;
+	transform: translateY(0%);
+}
+
+.fade-slide-exit-active {
+	opacity: 0.5;
+	transform: translateY(-100%);
+	transition: all 0.3s ease;
+}
+
+.fade-slide-exit-done {
+	opacity: 0;
+}
