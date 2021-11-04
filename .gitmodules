@@ -16,3 +16,6 @@
 [submodule "react-router-reference/gobarber-frontend"]
 	path = react-router-reference/gobarber-frontend
 	url = https://github.com/giovanniantonaccio/gobarber-frontend.git
+[submodule "react-router-v6-update"]
+	path = react-router-v6-update
+	url = https://github.com/academind/react-router-v6-update.git
