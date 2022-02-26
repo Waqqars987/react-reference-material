@@ -19,3 +19,9 @@
 [submodule "react-router-v6-update"]
 	path = react-router-v6-update
 	url = https://github.com/academind/react-router-v6-update.git
+[submodule "useful-custom-react-hooks"]
+	path = useful-custom-react-hooks
+	url = https://github.com/WebDevSimplified/useful-custom-react-hooks
+[submodule "react-calculator"]
+	path = react-calculator
+	url = https://github.com/WebDevSimplified/react-calculator
