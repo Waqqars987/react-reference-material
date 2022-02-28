@@ -25,3 +25,6 @@
 [submodule "react-calculator"]
 	path = react-calculator
 	url = https://github.com/WebDevSimplified/react-calculator
+[submodule "microfrontend-lerna-module-federation"]
+	path = microfrontend-lerna-module-federation
+	url = https://github.com/MichalZalecki/microfrontend-lerna-module-federation
