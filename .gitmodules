@@ -28,3 +28,6 @@
 [submodule "microfrontend-lerna-module-federation"]
 	path = microfrontend-lerna-module-federation
 	url = https://github.com/MichalZalecki/microfrontend-lerna-module-federation
+[submodule "federated-libraries-get-started"]
+	path = federated-libraries-get-started
+	url = https://github.com/jacob-ebey/federated-libraries-get-started
