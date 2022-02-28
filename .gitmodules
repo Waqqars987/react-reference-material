@@ -31,3 +31,6 @@
 [submodule "federated-libraries-get-started"]
 	path = federated-libraries-get-started
 	url = https://github.com/jacob-ebey/federated-libraries-get-started
+[submodule "clothes-store-micro-frontends"]
+	path = clothes-store-micro-frontends
+	url = https://github.com/comoser/clothes-store-micro-frontends
