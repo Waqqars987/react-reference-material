@@ -34,3 +34,6 @@
 [submodule "clothes-store-micro-frontends"]
 	path = clothes-store-micro-frontends
 	url = https://github.com/comoser/clothes-store-micro-frontends
+[submodule "thedevdesigner-react-lib"]
+	path = thedevdesigner-react-lib
+	url = https://github.com/Aakash1103Jha/thedevdesigner-react-lib.git
