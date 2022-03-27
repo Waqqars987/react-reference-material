@@ -3,9 +3,10 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import image from '@rollup/plugin-image';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { sync } from 'glob';
 
 export default {
-	input: ['src/index.js'],
+	input: sync('src/**/index.js'),
 	output: {
 		dir: 'dist',
 		format: 'es',
