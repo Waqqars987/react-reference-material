@@ -2,8 +2,14 @@
 	"name": "react-rollup-lib",
 	"version": "1.0.0",
 	"description": "a react rollup library",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"exports": {
+		".": "./dist/index.js",
+		"./store": "./dist/store/index.js",
+		"./components": "./dist/components/index.js",
+		"./package.json": "./package.json"
+	},
 	"author": "Waqqar Suleman",
 	"license": "MIT",
 	"scripts": {
@@ -34,6 +40,7 @@
 		"rollup-plugin-postcss": "^4.0.2"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"jsconfig.json"
 	]
 }

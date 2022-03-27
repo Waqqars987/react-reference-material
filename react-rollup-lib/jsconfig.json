@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"baseUrl": "./",
+		"paths": {
+			"store": [".store/index.js"],
+			"components": ["./components/index.js"]
+		}
+	}
+}
