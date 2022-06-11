@@ -2,12 +2,12 @@ export function fetchProfileData() {
 	const userPromise = fetchUser();
 	const postsPromise = fetchPosts();
 	return {
-		user: wrapPromise(userPromise),
-		posts: wrapPromise(postsPromise),
+		user: suspensify(userPromise),
+		posts: suspensify(postsPromise),
 	};
 }
 
-function wrapPromise(promise) {
+function suspensify(promise) {
 	let status = 'pending';
 	let result;
 	const suspender = promise
@@ -22,12 +22,14 @@ function wrapPromise(promise) {
 
 	return {
 		read: () => {
-			if (status === 'pending') {
-				throw suspender;
-			} else if (status === 'error') {
-				throw result;
-			} else if (status === 'success') {
-				return result;
+			// eslint-disable-next-line
+			switch (status) {
+				case 'pending':
+					throw suspender;
+				case 'error':
+					throw result;
+				case 'success':
+					return result;
 			}
 		},
 	};
@@ -37,7 +39,7 @@ function fetchUser() {
 	return new Promise(resolve => {
 		setTimeout(() => {
 			resolve({
-				name: 'Ringo Starr',
+				name: 'John Lennon',
 			});
 		}, 500);
 	});
