@@ -1,0 +1,13 @@
+{
+  "name": "redux-toolkit-demo",
+  "version": "1.0.0",
+  "description": "Redux Toolit Demo",
+  "main": "index.js",
+  "author": "Waqqar Suleman",
+  "license": "MIT",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.4",
+    "axios": "^0.27.2",
+    "redux-logger": "^3.0.6"
+  }
+}
