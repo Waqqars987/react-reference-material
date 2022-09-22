@@ -37,3 +37,6 @@
 [submodule "thedevdesigner-react-lib"]
 	path = thedevdesigner-react-lib
 	url = https://github.com/Aakash1103Jha/thedevdesigner-react-lib.git
+[submodule "react-router-6.4-intro"]
+	path = react-router-6.4-intro
+	url = https://github.com/academind/react-router-6.4-intro.git
