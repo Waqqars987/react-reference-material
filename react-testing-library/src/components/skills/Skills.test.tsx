@@ -15,4 +15,36 @@ describe('Skills', () => {
 		const listItemElements = screen.getAllByRole('listitem');
 		expect(listItemElements).toHaveLength(skills.length);
 	});
+
+	test('renders Login button', () => {
+		render(<Skills skills={skills} />);
+		const loginButton = screen.getByRole('button', {
+			name: 'Login'
+		});
+		expect(loginButton).toBeInTheDocument();
+	});
+
+	test('Start Learning button', () => {
+		render(<Skills skills={skills} />);
+		// queryBy.. - wont throw error for no match instead returns null
+		const startLearningButton = screen.queryByRole('button', {
+			name: 'Start learning'
+		});
+		expect(startLearningButton).not.toBeInTheDocument();
+	});
+
+	test('Start learnig button is eventually displayed', async () => {
+		render(<Skills skills={skills} />);
+		// findBy.. - returns a promise which can be handled accordingly, default timeout is 1000ms
+		const startLearningButton = await screen.findByRole(
+			'button',
+			{
+				name: 'Start learning'
+			},
+			{
+				timeout: 2000
+			}
+		);
+		expect(startLearningButton).toBeInTheDocument();
+	});
 });
