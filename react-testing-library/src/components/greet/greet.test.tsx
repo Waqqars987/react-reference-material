@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import { Greet } from './greet';
 
-describe('Greet', () => {
+describe.skip('Greet', () => {
 	test('renders correctly', () => {
 		render(<Greet />);
-		const textElement = screen.getByText(/hello/i);
+		const textElement = screen.getByText(/Hello/);
 		expect(textElement).toBeInTheDocument();
 	});
 });
 
-describe('Nested', () => {
+describe.skip('Nested', () => {
 	test('renders a name', () => {
 		render(<Greet name='Waqqar' />);
 		const textElement = screen.getByText(/hello waqqar/i);
