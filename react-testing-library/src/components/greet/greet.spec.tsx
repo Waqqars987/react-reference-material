@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Greet } from './greet';
 
 describe('Greet', () => {
-	test('renders correctly', () => {
+	it('renders correctly', () => {
 		render(<Greet />);
 		const textElement = screen.getByText(/hello/i);
 		expect(textElement).toBeInTheDocument();
@@ -10,7 +10,7 @@ describe('Greet', () => {
 });
 
 describe('Nested', () => {
-	test('renders a name', () => {
+	it('renders a name', () => {
 		render(<Greet name='Waqqar' />);
 		const textElement = screen.getByText(/hello waqqar/i);
 		expect(textElement).toBeInTheDocument();
