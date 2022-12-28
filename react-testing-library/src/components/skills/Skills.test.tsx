@@ -37,6 +37,7 @@ describe('Skills', () => {
 		const view = render(<Skills skills={skills} />);
 		logRoles(view.container);
 		// findBy.. - returns a promise which can be handled accordingly, default timeout is 1000ms
+		// eslint-disable-next-line testing-library/no-debugging-utils
 		screen.debug();
 		const startLearningButton = await screen.findByRole(
 			'button',
@@ -47,6 +48,7 @@ describe('Skills', () => {
 				timeout: 2000
 			}
 		);
+		// eslint-disable-next-line testing-library/no-debugging-utils
 		screen.debug();
 		expect(startLearningButton).toBeInTheDocument();
 	});
