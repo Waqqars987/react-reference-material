@@ -40,3 +40,6 @@
 [submodule "react-router-6.4-intro"]
 	path = react-router-6.4-intro
 	url = https://github.com/academind/react-router-6.4-intro.git
+[submodule "react-query-crash-course-example"]
+	path = react-query-crash-course-example
+	url = https://github.com/WebDevSimplified/react-query-crash-course-example
