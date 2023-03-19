@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+}
+
+.navbar {
+	border-bottom: 4px solid crimson;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+.navitems {
+	display: flex;
+	list-style: none;
+	gap: 2em;
+}
+
+li a.active {
+	color: seagreen;
+}
