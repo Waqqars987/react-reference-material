@@ -43,3 +43,9 @@
 [submodule "react-query-crash-course-example"]
 	path = react-query-crash-course-example
 	url = https://github.com/WebDevSimplified/react-query-crash-course-example
+[submodule "project_weather_pwa"]
+	path = project_weather_pwa
+	url = https://github.com/adrianhajdin/project_weather_pwa.git
+[submodule "react-pwa-project"]
+	path = react-pwa-project
+	url = https://github.com/anil-sidhu/react-pwa-project.git
