@@ -1,4 +1,4 @@
-import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
