@@ -1,9 +1,8 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
 function ButtonUsage() {
 	return <Button variant='contained'>Hello world</Button>;
