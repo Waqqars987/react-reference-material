@@ -1,30 +1,33 @@
-import { useState, lazy, Suspense } from 'react';
-import { Button, Typography } from '@mui/material';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 
+import Home from './pages/Home';
+import Load from './pages/Load';
+import Recipe from './pages/Recipe';
 import Theme from './components/Theme';
 import { Header } from './components/Header';
-
-const ReceipeCard = lazy(() => import('Remote/recipe'));
+import ErrorBoundary from './components/ErroBoundary';
 
 const App = () => {
-	const [showCard, setShowCard] = useState(false);
-
 	return (
 		<Theme>
 			<Header />
 			<main>
-				<Button variant='contained' onClick={() => setShowCard(prev => !prev)}>
-					Toggle Card
-				</Button>
-
-				{showCard && (
-					<Suspense fallback={<Typography>Loading Module...</Typography>}>
-						<ReceipeCard />
-					</Suspense>
-				)}
+				<Outlet />
 			</main>
 		</Theme>
 	);
 };
 
 export default App;
+
+export const Router = createBrowserRouter([
+	{
+		path: '/',
+		element: <App />,
+		children: [
+			{ index: true, element: <Home /> },
+			{ path: 'recipe', element: <Recipe /> },
+			{ path: 'loader', element: <Load />, errorElement: <ErrorBoundary /> }
+		]
+	}
+]);
