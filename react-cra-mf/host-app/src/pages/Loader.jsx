@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 
-const Load = () => {
+export const Component = () => {
 	const loaderString = renderToStaticMarkup(
 		<img
 			src='https://media.tenor.com/g6UyWxRljhwAAAAi/missing-head-mind-loading.gif'
@@ -11,4 +11,4 @@ const Load = () => {
 	return <div dangerouslySetInnerHTML={{ __html: loaderString }} />;
 };
 
-export default Load;
+Component.displayName = 'Load';

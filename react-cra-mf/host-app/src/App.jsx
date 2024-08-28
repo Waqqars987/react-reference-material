@@ -1,8 +1,6 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Load from './pages/Load';
-import Recipe from './pages/Recipe';
 import Theme from './components/Theme';
 import { Header } from './components/Header';
 import ErrorBoundary from './components/ErroBoundary';
@@ -26,8 +24,8 @@ export const Router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{ index: true, element: <Home /> },
-			{ path: 'recipe', element: <Recipe /> },
-			{ path: 'loader', element: <Load />, errorElement: <ErrorBoundary /> }
+			{ path: 'recipe', lazy: () => import('./pages/Recipe') },
+			{ path: 'loader', lazy: () => import('./pages/Loader'), errorElement: <ErrorBoundary /> }
 		]
 	}
 ]);

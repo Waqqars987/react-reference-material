@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 
 const ReceipeCard = lazy(() => import('Remote/recipe'));
 
-const Recipe = () => {
+export const Component = () => {
 	return (
 		<Suspense fallback={<Typography>Loading Module...</Typography>}>
 			<ReceipeCard />
@@ -11,4 +11,4 @@ const Recipe = () => {
 	);
 };
 
-export default Recipe;
+Component.displayName = 'Recipe';
