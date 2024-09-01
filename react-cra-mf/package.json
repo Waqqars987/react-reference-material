@@ -1,0 +1,14 @@
+{
+	"name": "react-cra-mf",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"start": "lerna run start --stream --parallel",
+		"preview": "lerna run preview --stream --parallel"
+	},
+	"devDependencies": {
+		"lerna": "^8.1.8"
+	}
+}
