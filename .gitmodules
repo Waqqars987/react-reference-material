@@ -49,3 +49,6 @@
 [submodule "react-pwa-project"]
 	path = react-pwa-project
 	url = https://github.com/anil-sidhu/react-pwa-project.git
+[submodule "react-cra-mf"]
+	path = react-cra-mf
+	url = https://github.com/Waqqars987/react-cra-mf.git
